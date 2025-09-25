@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Comprar Tiquete</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comprar Tiquete - Vallenato Express</title>
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -31,90 +31,97 @@
 
   <!-- CONTENIDO -->
   <main class="container">
-    <h1>Compra de Tiquetes en Línea</h1>
-    <p>Completa la información de tu viaje y tus datos para realizar la compra:</p>
+    <h1>Compra de Tiquetes</h1>
+    <p>Completa el siguiente formulario para realizar tu compra:</p>
 
-    <form class="form-compra" id="formCompra">
-      <!-- Datos de viaje -->
-      <fieldset>
-        <legend>Datos del Viaje</legend>
+    <form id="formCompra">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
 
-        <label for="origen">Origen:</label>
-        <select id="origen" name="origen" required>
-          <option value="">Seleccione...</option>
-          <option value="Valledupar">Valledupar</option>
-          <option value="Bogotá">Bogotá</option>
-          <option value="Medellín">Medellín</option>
-          <option value="Barranquilla">Barranquilla</option>
-          <option value="Santa Marta">Santa Marta</option>
-          <option value="Cartagena">Cartagena</option>
-        </select>
+      <label for="documento">Documento:</label>
+      <input type="text" id="documento" name="documento" required>
 
-        <label for="destino">Destino:</label>
-        <select id="destino" name="destino" required>
-          <option value="">Seleccione...</option>
-          <option value="Bogotá">Bogotá</option>
-          <option value="Medellín">Medellín</option>
-          <option value="Barranquilla">Barranquilla</option>
-          <option value="Santa Marta">Santa Marta</option>
-          <option value="Cartagena">Cartagena</option>
-        </select>
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
 
-        <label for="fecha">Fecha de viaje:</label>
-        <input type="date" id="fecha" name="fecha" required>
+      <!-- Selección de empresa -->
+      <label for="empresa">Empresa de transporte:</label>
+      <select id="empresa" name="empresa" required>
+        <option value="">Seleccione una empresa</option>
+        <option value="Transportes del Norte">Transportes del Norte</option>
+        <option value="Expreso Caribe">Expreso Caribe</option>
+        <option value="Rápido Valledupar">Rápido Valledupar</option>
+      </select>
 
-        <label for="pasajeros">Número de pasajeros:</label>
-        <input type="number" id="pasajeros" name="pasajeros" min="1" max="60" required>
-      </fieldset>
+      <!-- Origen / Destino como selects -->
+      <label for="origen">Origen:</label>
+      <select id="origen" name="origen" required>
+        <option value="">Seleccione origen</option>
+        <option value="Valledupar">Valledupar</option>
+        <option value="Bogotá">Bogotá</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Barranquilla">Barranquilla</option>
+        <option value="Santa Marta">Santa Marta</option>
+        <option value="Cartagena">Cartagena</option>
+      </select>
 
-      <!-- Datos personales -->
-      <fieldset>
-        <legend>Datos del Pasajero</legend>
-        <label for="nombre">Nombre Completo:</label>
-        <input type="text" id="nombre" name="nombre" required>
+      <label for="destino">Destino:</label>
+      <select id="destino" name="destino" required>
+        <option value="">Seleccione destino</option>
+        <option value="Bogotá">Bogotá</option>
+        <option value="Medellín">Medellín</option>
+        <option value="Barranquilla">Barranquilla</option>
+        <option value="Santa Marta">Santa Marta</option>
+        <option value="Cartagena">Cartagena</option>
+      </select>
 
-        <label for="documento">Número de Documento:</label>
-        <input type="text" id="documento" name="documento" required>
+      <label for="fecha">Fecha de viaje:</label>
+      <input type="date" id="fecha" name="fecha" required>
 
-        <label for="email">Correo Electrónico:</label>
-        <input type="email" id="email" name="email" required>
+      <label for="pasajeros">Número de pasajeros:</label>
+      <input type="number" id="pasajeros" name="pasajeros" min="1" required>
 
-        <label for="telefono">Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
-      </fieldset>
+      <label for="tarjeta">Número de tarjeta:</label>
+      <input type="text" id="tarjeta" name="tarjeta" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
 
-      <!-- Datos de pago -->
-      <fieldset>
-        <legend>Método de Pago</legend>
-        <label for="tarjeta">Número de Tarjeta:</label>
-        <input type="text" id="tarjeta" name="tarjeta" placeholder="XXXX-XXXX-XXXX-XXXX" required>
+      <div class="row-card" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+        <div style="flex:1;min-width:140px;">
+          <label for="expira">Vencimiento (mes/año):</label>
+          <input type="month" id="expira" name="expira" required>
+        </div>
 
-        <label for="expira">Fecha de Expiración:</label>
-        <input type="month" id="expira" name="expira" required>
+        <div>
+          <label for="cvv">CVV:</label>
+          <input type="password" id="cvv" name="cvv" maxlength="3" pattern="\d{3}" required class="input-cvv">
+        </div>
+      </div>
 
-        <label for="cvv">CVV:</label>
-        <input type="password" id="cvv" name="cvv" maxlength="3" pattern="\d{3}" required class="input-cvv">
-
-      </fieldset>
-
-      <button type="submit" class="btn btn-primary">Confirmar Compra</button>
+      <button type="submit" class="btn btn-primary">Comprar</button>
     </form>
 
-    <div id="mensajeCompra" class="resultado"></div>
+    <!-- Mensaje de confirmación -->
+    <div id="mensajeCompra" style="margin-top:20px;"></div>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-grid">
-      <th>📍 Dirección: Calle 45 #18-22, Centro, Valledupar, Cesar – Colombia</th>
-      <th>☎️ Teléfono: +57 (605) 589 4321</th>
-      <th>📧 Correo electrónico: info@terminalvalledupar.com</th>
-      <th>🌐 Redes Sociales:
+      <div>
+        <h3>Vallenato Express</h3>
+        <p>Conectando destinos de forma rápida, segura y confiable.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p>📍 Calle 45 #18-22, Valledupar</p>
+        <p>☎️ +57 (605) 589 4321</p>
+        <p>📧 info@terminalvalledupar.com</p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
         <a href="#"><i class="fa-brands fa-twitter"></i></a>
         <a href="#"><i class="fa-brands fa-instagram"></i></a>
-      </th>
-      <th><a href="#">FAQs</a></th>
+      </div>
     </div>
     <div class="footer-bottom">
       © 2025 Vallenato Express. Todos los derechos reservados.
@@ -122,23 +129,6 @@
   </footer>
 
   <!-- SCRIPT -->
-  <script>
-    document.getElementById("formCompra").addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const nombre = document.getElementById("nombre").value;
-      const origen = document.getElementById("origen").value;
-      const destino = document.getElementById("destino").value;
-      const fecha = document.getElementById("fecha").value;
-      const pasajeros = document.getElementById("pasajeros").value;
-
-      document.getElementById("mensajeCompra").innerHTML = `
-        <h3>✅ Compra Exitosa</h3>
-        <p>Gracias <strong>${nombre}</strong> por tu compra.</p>
-        <p>Has reservado <strong>${pasajeros}</strong> tiquete(s) en la ruta <strong>${origen} → ${destino}</strong> para la fecha <strong>${fecha}</strong>.</p>
-        <p>📧 Recibirás la confirmación en tu correo electrónico.</p>
-      `;
-    });
-  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
