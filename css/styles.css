@@ -556,3 +556,15 @@ main {
 .empresa-card:hover, .vehiculo-card:hover {
   transform: scale(1.03);
 }
+
+.btn {
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05); /* se agranda un poco */
+}
