@@ -568,3 +568,133 @@ main {
 .btn:hover {
   transform: scale(1.05); /* se agranda un poco */
 }
+
+/* --------------------------
+   Estilos específicos: Comprar Tiquete
+   Añade esto al final de css/styles.css
+   -------------------------- */
+
+#formCompra {
+  background: #ffffff;
+  max-width: 720px;
+  margin: 30px auto;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  display: grid;
+  gap: 14px;
+  align-items: center;
+  font-family: inherit;
+}
+
+/* Etiquetas */
+#formCompra label {
+  font-weight: 600;
+  color: #3a2158;
+  font-size: 0.95rem;
+}
+
+/* Inputs y selects: ocupan todo el ancho del formulario */
+#formCompra input[type="text"],
+#formCompra input[type="email"],
+#formCompra input[type="tel"],
+#formCompra input[type="date"],
+#formCompra input[type="month"],
+#formCompra input[type="password"],
+#formCompra input[type="number"],
+#formCompra select,
+#formCompra textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d6d6d6;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+
+/* foco */
+#formCompra input:focus,
+#formCompra select:focus,
+#formCompra textarea:focus {
+  border-color: #5c2a91;
+  box-shadow: 0 4px 14px rgba(92,42,145,0.08);
+}
+
+/* CVV pequeño */
+.input-cvv {
+  width: 90px;              /* ancho reducido para el CVV */
+  max-width: 100%;
+  padding: 10px;
+  text-align: center;
+  letter-spacing: 2px;
+  display: inline-block;
+}
+
+/* Si quieres que el CVV no ocupe toda la fila en móviles */
+@media (min-width: 680px) {
+  /* Agrupa tarjeta y cvv en una fila cuando haya espacio */
+  #formCompra .row-card {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  /* tarjeta ocupa el resto */
+  #formCompra .row-card input[type="text"]:not(.input-cvv) {
+    flex: 1;
+  }
+}
+
+/* Botón (asegúrate de no duplicar si ya lo tienes global) */
+#formCompra .btn {
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+/* Botón principal */
+#formCompra .btn.btn-primary {
+  background: #ffc107;
+  color: #111;
+  box-shadow: 0 6px 18px rgba(255,193,7,0.12);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#formCompra .btn.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(255,193,7,0.18);
+}
+
+/* Mensaje de confirmación */
+#mensajeCompra {
+  max-width: 720px;
+  margin: 18px auto 40px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f7fff7; /* verde muy suave por defecto */
+  color: #155724;
+  border: 1px solid rgba(0,128,0,0.12);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* Mensaje de error */
+#mensajeCompra.error {
+  background: #fff5f5;
+  color: #8a1f1f;
+  border-color: rgba(138,31,31,0.12);
+}
+
+/* Ajustes generales responsivos */
+@media (max-width: 600px) {
+  #formCompra {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .hero-image {
+    max-width: 180px; /* si reutilizas hero-image en la misma hoja */
+  }
+}
+
