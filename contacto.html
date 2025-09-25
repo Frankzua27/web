@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/LogoFicial.png" alt="Logo Vallenato Express" class="logo">
+      </a>
+      <nav id="main-nav" class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="informacion.html">Terminal</a>
+        <a href="empresas.html">Empresas</a>
+        <a href="vehiculos.html">Vehículos</a>
+        <a href="rutas.html">Rutas</a>
+        <a href="horarios.html">Horarios</a>
+        <a href="disponibilidad.html">Disponibilidad</a>
+        <a href="costos.html">Costos</a>
+        <a href="cotizar.html">Cotizar</a>
+        <a href="comprar_tiquete.html">Comprar Tiquete</a>
+        <a href="contacto.html" class="active">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="container">
+    <h1>Contáctanos</h1>
+    <p>Si tienes dudas, comentarios o sugerencias, escríbenos a través del siguiente formulario:</p>
+
+    <form class="form-contacto" id="formContacto">
+      <label for="nombre">Nombre Completo:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo Electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono">
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+    </form>
+
+    <div id="respuestaContacto" class="resultado"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <th>📍 Dirección: Calle 45 #18-22, Centro, Valledupar, Cesar – Colombia</th>
+      <th>☎️ Teléfono: +57 (605) 589 4321</th>
+      <th>📧 Correo electrónico: info@terminalvalledupar.com</th>
+      <th>🌐 Redes Sociales:
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </th>
+      <th><a href="#">FAQs</a></th>
+    </div>
+    <div class="footer-bottom">
+      © 2025 Vallenato Express. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    document.getElementById("formContacto").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const email = document.getElementById("email").value;
+      const mensaje = document.getElementById("mensaje").value;
+
+      document.getElementById("respuestaContacto").innerHTML = `
+        <h3>✅ Mensaje Enviado</h3>
+        <p>Gracias <strong>${nombre}</strong> por contactarnos.</p>
+        <p>Te responderemos pronto a tu correo: <strong>${email}</strong>.</p>
+        <p>📩 Tu mensaje: "${mensaje}"</p>
+      `;
+    });
+  </script>
+</body>
+</html>
